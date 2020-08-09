@@ -10,10 +10,10 @@ func checkConfigExist() error {
 		return err
 	}
 
-	host := c.General.Ansiblerootdir + c.General.Hosts
-	Install := c.General.Ansiblerootdir + c.General.Install
-	uninstall := c.General.Ansiblerootdir + c.General.Uninstall
-	update := c.General.Ansiblerootdir + c.General.Update
+	host := c.Ansible.Ansiblerootdir + c.Ansible.Hosts
+	Install := c.Ansible.Ansiblerootdir + c.Ansible.Install
+	uninstall := c.Ansible.Ansiblerootdir + c.Ansible.Uninstall
+	update := c.Ansible.Ansiblerootdir + c.Ansible.Update
 
 	if _, err := os.Stat(host); os.IsNotExist(err) {
 		return err

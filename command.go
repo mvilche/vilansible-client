@@ -13,7 +13,7 @@ import (
 
 type Config struct {
 	Application application
-	General     general
+	Ansible     ansible
 	Api         api
 }
 
@@ -27,7 +27,7 @@ type api struct {
 	Enableapi bool
 }
 
-type general struct {
+type ansible struct {
 	Ansiblerootdir string
 	Hosts          string
 	Install        string
@@ -82,13 +82,13 @@ func runCommand(fla Flag) error {
 	fmt.Println("Version: " + c.Application.Version + "")
 
 	if fla.Type == "install" {
-		ansiblecommand = c.General.Ansiblerootdir + c.General.Hosts + " " + c.General.Ansiblerootdir + c.General.Install
+		ansiblecommand = c.Ansible.Ansiblerootdir + c.Ansible.Hosts + " " + c.Ansible.Ansiblerootdir + c.Ansible.Install
 	}
 	if fla.Type == "update" {
-		ansiblecommand = c.General.Ansiblerootdir + c.General.Hosts + " " + c.General.Ansiblerootdir + c.General.Update
+		ansiblecommand = c.Ansible.Ansiblerootdir + c.Ansible.Hosts + " " + c.Ansible.Ansiblerootdir + c.Ansible.Update
 	}
 	if fla.Type == "uninstall" {
-		ansiblecommand = c.General.Ansiblerootdir + c.General.Hosts + " " + c.General.Ansiblerootdir + c.General.Uninstall
+		ansiblecommand = c.Ansible.Ansiblerootdir + c.Ansible.Hosts + " " + c.Ansible.Ansiblerootdir + c.Ansible.Uninstall
 	}
 
 	cmd := exec.Command(interprete, "-c", ""+ansibleplaybook+" -i "+ansiblecommand+"")
