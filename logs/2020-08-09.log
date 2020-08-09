@@ -28,3 +28,140 @@ EXECUTION:	2020/08/09 16:27:32 	PLAY RECAP *************************************
 EXECUTION:	2020/08/09 16:27:32 	wildfly-node1              : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 EXECUTION:	2020/08/09 16:27:32 	
 INFO:	2020/08/09 16:27:32 updatefinish successful!
+ERROR:	2020/08/09 19:13:12 main.go:19: This program must be run with sudo
+ERROR:	2020/08/09 19:13:18 main.go:32: stat /home/mvilche/Projects/backend/ansible/hosts.ini: no such file or directory
+ERROR:	2020/08/09 19:18:55 main.go:36: stat /home/mvilche/Projects/backend/ansible/hosts.ini: no such file or directory
+ERROR:	2020/08/09 19:21:50 main.go:19: Windows not supported
+ERROR:	2020/08/09 19:27:03 main.go:26: This program must be run with sudo
+ERROR:	2020/08/09 19:28:10 main.go:26: This program must be run with sudo
+ERROR:	2020/08/09 19:28:15 main.go:39: stat /home/mvilche/Projects/backend/ansible/hosts.ini: no such file or directory
+INFO:	2020/08/09 19:28:24 Start uninstall
+INFO:	2020/08/09 19:28:24 Started by: 
+INFO:	2020/08/09 19:28:24 Application: pruebas
+INFO:	2020/08/09 19:28:24 Version: 1.0.7
+EXECUTION:	2020/08/09 19:28:25 	
+EXECUTION:	2020/08/09 19:28:25 	PLAY [start uninstall] *********************************************************
+EXECUTION:	2020/08/09 19:28:25 	
+EXECUTION:	2020/08/09 19:28:25 	TASK [Gathering Facts] *********************************************************
+EXECUTION:	2020/08/09 19:28:34 	fatal: [wildfly-node1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '[127.0.0.1]:2222' (ECDSA) to the list of known hosts.\r\nroot@127.0.0.1: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+EXECUTION:	2020/08/09 19:28:34 	
+EXECUTION:	2020/08/09 19:28:34 	PLAY RECAP *********************************************************************
+EXECUTION:	2020/08/09 19:28:34 	wildfly-node1              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+EXECUTION:	2020/08/09 19:28:34 	
+ERROR:	2020/08/09 19:28:34 command.go:118: exit status 4
+INFO:	2020/08/09 19:30:38 Start uninstall
+INFO:	2020/08/09 19:30:38 Started by: Martin Vilche
+INFO:	2020/08/09 19:30:38 Application: pruebas
+INFO:	2020/08/09 19:30:38 Version: 1.0.7
+EXECUTION:	2020/08/09 19:30:39 	
+EXECUTION:	2020/08/09 19:30:39 	PLAY [start uninstall] *********************************************************
+EXECUTION:	2020/08/09 19:30:39 	
+EXECUTION:	2020/08/09 19:30:39 	TASK [Gathering Facts] *********************************************************
+EXECUTION:	2020/08/09 19:30:40 	ok: [wildfly-node1]
+EXECUTION:	2020/08/09 19:30:40 	
+EXECUTION:	2020/08/09 19:30:40 	TASK [confirmation : Start uninstall] ******************************************
+EXECUTION:	2020/08/09 19:30:40 	ok: [wildfly-node1] => {
+EXECUTION:	2020/08/09 19:30:40 	    "msg": [
+EXECUTION:	2020/08/09 19:30:40 	        "A CONTINUACION COMENZARA EL PROCESO DE DESINTALACION",
+EXECUTION:	2020/08/09 19:30:40 	        "ATENCION!!!! - EL PROCESO DE DESINTALACION ELIMINARA TODOS LOS COMPONENTES Y SUS DATOS"
+EXECUTION:	2020/08/09 19:30:40 	    ]
+EXECUTION:	2020/08/09 19:30:40 	}
+EXECUTION:	2020/08/09 19:30:40 	
+EXECUTION:	2020/08/09 19:30:40 	TASK [confirmation : pause] ****************************************************
+EXECUTION:	2020/08/09 19:30:40 	[confirmation : pause]
+EXECUTION:	2020/08/09 19:30:40 	¿DESEA CONTINUAR CON EL PROCESO DE DESINSTALACION?. PRESIONE UNA TECLA PARA CONTINUAR o CTRL + c Y LUEGO 'a' PARA ABORTAR LA DESINSTALACION:
+EXECUTION:	2020/08/09 19:30:40 	ok: [wildfly-node1]
+EXECUTION:	2020/08/09 19:30:40 	
+EXECUTION:	2020/08/09 19:30:40 	PLAY [start uninstall postgresql] **********************************************
+EXECUTION:	2020/08/09 19:30:40 	
+EXECUTION:	2020/08/09 19:30:40 	TASK [Gathering Facts] *********************************************************
+EXECUTION:	2020/08/09 19:30:40 	ok: [postgresql-node1]
+EXECUTION:	2020/08/09 19:30:41 	
+EXECUTION:	2020/08/09 19:30:41 	TASK [postgresql : validate] ***************************************************
+EXECUTION:	2020/08/09 19:30:41 	skipping: [postgresql-node1]
+EXECUTION:	2020/08/09 19:30:41 	
+EXECUTION:	2020/08/09 19:30:41 	TASK [uninstall postgresql] ****************************************************
+EXECUTION:	2020/08/09 19:30:43 	changed: [postgresql-node1]
+EXECUTION:	2020/08/09 19:30:43 	
+EXECUTION:	2020/08/09 19:30:43 	TASK [uninstall postgresql] ****************************************************
+EXECUTION:	2020/08/09 19:30:43 	skipping: [postgresql-node1]
+EXECUTION:	2020/08/09 19:30:43 	
+EXECUTION:	2020/08/09 19:30:43 	TASK [postgresql : Remove files] ***********************************************
+EXECUTION:	2020/08/09 19:30:44 	changed: [postgresql-node1]
+EXECUTION:	2020/08/09 19:30:44 	
+EXECUTION:	2020/08/09 19:30:44 	TASK [postgresql : file] *******************************************************
+EXECUTION:	2020/08/09 19:30:44 	changed: [postgresql-node1]
+EXECUTION:	2020/08/09 19:30:44 	
+EXECUTION:	2020/08/09 19:30:44 	PLAY [start uninstall wildfly] *************************************************
+EXECUTION:	2020/08/09 19:30:44 	
+EXECUTION:	2020/08/09 19:30:44 	TASK [Gathering Facts] *********************************************************
+EXECUTION:	2020/08/09 19:30:45 	ok: [wildfly-node1]
+EXECUTION:	2020/08/09 19:30:45 	
+EXECUTION:	2020/08/09 19:30:45 	TASK [wildfly : validate] ******************************************************
+EXECUTION:	2020/08/09 19:30:45 	skipping: [wildfly-node1]
+EXECUTION:	2020/08/09 19:30:45 	
+EXECUTION:	2020/08/09 19:30:45 	TASK [stopped wildfly] *********************************************************
+EXECUTION:	2020/08/09 19:30:46 	changed: [wildfly-node1]
+EXECUTION:	2020/08/09 19:30:46 	
+EXECUTION:	2020/08/09 19:30:46 	TASK [wildfly : delete directory] **********************************************
+EXECUTION:	2020/08/09 19:30:47 	changed: [wildfly-node1] => (item=/opt/wildfly)
+EXECUTION:	2020/08/09 19:30:47 	changed: [wildfly-node1] => (item=/etc/wildfly)
+EXECUTION:	2020/08/09 19:30:47 	
+EXECUTION:	2020/08/09 19:30:47 	TASK [disable wildfly service] *************************************************
+EXECUTION:	2020/08/09 19:30:47 	changed: [wildfly-node1]
+EXECUTION:	2020/08/09 19:30:47 	
+EXECUTION:	2020/08/09 19:30:47 	PLAY [start uninstall apache modsecurity] **************************************
+EXECUTION:	2020/08/09 19:30:47 	
+EXECUTION:	2020/08/09 19:30:47 	TASK [Gathering Facts] *********************************************************
+EXECUTION:	2020/08/09 19:30:48 	ok: [modsecurity-node1]
+EXECUTION:	2020/08/09 19:30:48 	
+EXECUTION:	2020/08/09 19:30:48 	TASK [modsecurity : validate] **************************************************
+EXECUTION:	2020/08/09 19:30:48 	skipping: [modsecurity-node1]
+EXECUTION:	2020/08/09 19:30:48 	
+EXECUTION:	2020/08/09 19:30:48 	TASK [modsecurity : uninstall httpd] *******************************************
+EXECUTION:	2020/08/09 19:30:51 	changed: [modsecurity-node1]
+EXECUTION:	2020/08/09 19:30:51 	
+EXECUTION:	2020/08/09 19:30:51 	TASK [modsecurity : uninstall httpd] *******************************************
+EXECUTION:	2020/08/09 19:30:51 	skipping: [modsecurity-node1]
+EXECUTION:	2020/08/09 19:30:51 	
+EXECUTION:	2020/08/09 19:30:51 	TASK [modsecurity : delete files] **********************************************
+EXECUTION:	2020/08/09 19:30:51 	changed: [modsecurity-node1]
+EXECUTION:	2020/08/09 19:30:51 	
+EXECUTION:	2020/08/09 19:30:51 	TASK [modsecurity : file] ******************************************************
+EXECUTION:	2020/08/09 19:30:52 	changed: [modsecurity-node1]
+EXECUTION:	2020/08/09 19:30:52 	
+EXECUTION:	2020/08/09 19:30:52 	PLAY RECAP *********************************************************************
+EXECUTION:	2020/08/09 19:30:52 	modsecurity-node1          : ok=4    changed=3    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+EXECUTION:	2020/08/09 19:30:52 	postgresql-node1           : ok=4    changed=3    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+EXECUTION:	2020/08/09 19:30:52 	wildfly-node1              : ok=7    changed=3    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+EXECUTION:	2020/08/09 19:30:52 	
+INFO:	2020/08/09 19:30:52 uninstallfinish successful!
+INFO:	2020/08/09 19:32:38 Start uninstall
+INFO:	2020/08/09 19:32:38 Started by: Martin Vilche
+INFO:	2020/08/09 19:32:38 Application: pruebas
+INFO:	2020/08/09 19:32:38 Version: 1.0.7
+EXECUTION:	2020/08/09 19:32:38 	
+EXECUTION:	2020/08/09 19:32:38 	PLAY [start uninstall] *********************************************************
+EXECUTION:	2020/08/09 19:32:38 	
+EXECUTION:	2020/08/09 19:32:38 	TASK [Gathering Facts] *********************************************************
+EXECUTION:	2020/08/09 19:32:38 	fatal: [wildfly-node1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: kex_exchange_identification: read: Connection reset by peer\r\nConnection reset by 127.0.0.1 port 2222", "unreachable": true}
+EXECUTION:	2020/08/09 19:32:38 	
+EXECUTION:	2020/08/09 19:32:38 	PLAY RECAP *********************************************************************
+EXECUTION:	2020/08/09 19:32:38 	wildfly-node1              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+EXECUTION:	2020/08/09 19:32:38 	
+ERROR:	2020/08/09 19:32:38 command.go:118: exit status 4
+INFO:	2020/08/09 19:33:59 Start uninstall
+INFO:	2020/08/09 19:33:59 Started by: Martin Vilche
+INFO:	2020/08/09 19:33:59 Application: pruebas
+INFO:	2020/08/09 19:33:59 Version: 1.0.7
+EXECUTION:	2020/08/09 19:34:00 	
+EXECUTION:	2020/08/09 19:34:00 	PLAY [start uninstall] *********************************************************
+EXECUTION:	2020/08/09 19:34:00 	
+EXECUTION:	2020/08/09 19:34:00 	TASK [Gathering Facts] *********************************************************
+EXECUTION:	2020/08/09 19:34:00 	fatal: [wildfly-node1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: kex_exchange_identification: read: Connection reset by peer\r\nConnection reset by 127.0.0.1 port 2222", "unreachable": true}
+EXECUTION:	2020/08/09 19:34:00 	
+EXECUTION:	2020/08/09 19:34:00 	PLAY RECAP *********************************************************************
+EXECUTION:	2020/08/09 19:34:00 	wildfly-node1              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+EXECUTION:	2020/08/09 19:34:00 	
+ERROR:	2020/08/09 19:34:00 command.go:118: exit status 4
+ERROR:	2020/08/09 19:34:00 main.go:69: Post "http://localhost:9000/executions": dial tcp [::1]:9000: connect: connection refused

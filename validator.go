@@ -1,6 +1,12 @@
 package main
 
-import "os"
+import (
+	"errors"
+	"os"
+	"os/exec"
+	"runtime"
+	"strconv"
+)
 
 func checkConfigExist() error {
 
@@ -31,5 +37,33 @@ func checkConfigExist() error {
 		return err
 	}
 
+	return nil
+}
+
+func checkSudoRun() error {
+
+	cmd := exec.Command("id", "-u")
+	output, err := cmd.Output()
+
+	if err != nil {
+		return err
+	}
+	i, err := strconv.Atoi(string(output[:len(output)-1]))
+
+	if err != nil {
+		return err
+	}
+	if i != 0 {
+		return errors.New("This program must be run with sudo")
+	}
+
+	return nil
+}
+
+func checkOS() error {
+
+	if runtime.GOOS == "windows" {
+		return errors.New("Windows not supported")
+	}
 	return nil
 }

@@ -7,7 +7,27 @@ import (
 
 func main() {
 
-	err := InitdB()
+	err := createLogFile()
+	if err != nil {
+		fmt.Println("Error: ", err.Error())
+		os.Exit(1)
+	}
+
+	err = checkOS()
+	if err != nil {
+		fmt.Println("Error: ", err.Error())
+		ErrorLog.Printf(err.Error())
+		os.Exit(1)
+	}
+	/*
+		err = checkSudoRun()
+		if err != nil {
+			fmt.Println("Error: ", err.Error())
+			ErrorLog.Printf(err.Error())
+			os.Exit(1)
+		}*/
+
+	err = InitdB()
 	if err != nil {
 		fmt.Println("Error: ", err.Error())
 		ErrorLog.Printf(err.Error())
@@ -21,13 +41,6 @@ func main() {
 		os.Exit(1)
 	}
 	_, _, err = checkBinary()
-	if err != nil {
-		fmt.Println("Error: ", err.Error())
-		ErrorLog.Printf(err.Error())
-		os.Exit(1)
-	}
-
-	err = createLogFile()
 	if err != nil {
 		fmt.Println("Error: ", err.Error())
 		ErrorLog.Printf(err.Error())
