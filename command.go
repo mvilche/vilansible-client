@@ -23,7 +23,8 @@ type application struct {
 }
 
 type api struct {
-	Url string
+	Url       string
+	Enableapi bool
 }
 
 type general struct {
@@ -123,7 +124,16 @@ func runCommand(fla Flag) error {
 		e.User = u.Name
 		e.Date = time.Now().Format("2006-01-02 15:06:23")
 
-		err = CallApiExecutions(e, c)
+		if c.Api.Enableapi {
+
+			err = CallApiExecutions(e, c)
+			if err != nil {
+				return err
+			}
+
+		}
+
+		err = SaveExecution(e)
 		if err != nil {
 			return err
 		}
@@ -131,14 +141,8 @@ func runCommand(fla Flag) error {
 		return err
 	}
 
-	InfoLog.Println("Start " + fla.Type + " successful!")
-	InfoLog.Println("Started by: " + u.Name + "")
-	InfoLog.Println("Application Name: " + c.Application.Name + "")
-	InfoLog.Println("Running Version: " + c.Application.Version + "")
-	fmt.Println("Start " + fla.Type + " successful!")
-	fmt.Println("Started by: " + u.Name + "")
-	fmt.Println("Application Name: " + c.Application.Name + "")
-	fmt.Println("Running Version: " + c.Application.Version + "")
+	InfoLog.Println(fla.Type + "finish successful!")
+	fmt.Println(fla.Type + " finish successful!")
 	var e Execution
 	e.Application = c.Application.Name
 	e.Version = c.Application.Version
@@ -147,8 +151,18 @@ func runCommand(fla Flag) error {
 	e.User = u.Name
 	e.Date = time.Now().Format("2006-01-02 15:06:23")
 
-	err = CallApiExecutions(e, c)
+	if c.Api.Enableapi {
+		fmt.Printf("ENTREEEEE API")
+		err = CallApiExecutions(e, c)
+		if err != nil {
+			return err
+		}
+
+	}
+
+	err = SaveExecution(e)
 	if err != nil {
+		fmt.Printf("ENTREEEEE ERROR SAVE")
 		return err
 	}
 

@@ -7,7 +7,8 @@ import (
 )
 
 type Flag struct {
-	Type string
+	Type    string
+	History bool
 }
 
 func getFlag() (Flag, error) {
@@ -15,16 +16,22 @@ func getFlag() (Flag, error) {
 	passed := false
 	var err error
 	runtype := flag.String("type", "install, update, uninstall", "A string")
+	h := flag.Bool("history", false, "bool")
 	flag.Parse()
-	f.Type = strings.TrimSpace(*runtype)
 
-	if f.Type == "install" {
+	f.Type = strings.TrimSpace(*runtype)
+	f.History = *h
+	if f.Type == "install" && !*h {
 		passed = true
 	}
-	if f.Type == "update" {
+	if f.Type == "update" && !*h {
 		passed = true
 	}
-	if f.Type == "uninstall" {
+	if f.Type == "uninstall" && !*h {
+		passed = true
+	}
+
+	if f.History {
 		passed = true
 	}
 

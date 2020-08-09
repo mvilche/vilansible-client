@@ -8,15 +8,6 @@ import (
 	"net/http"
 )
 
-type Execution struct {
-	Application string
-	Version     string
-	TypeExec    string
-	Date        string
-	Status      bool
-	User        string
-}
-
 func CallApiExecutions(e Execution, c Config) error {
 	var s string
 
